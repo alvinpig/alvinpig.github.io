@@ -1,0 +1,39 @@
+<!-- auto redirect -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting to Alvin Pig :)…</title>
+
+  <!-- Immediate fallback redirect -->
+  <meta http-equiv="refresh" content="0;url=https://padlet.com/wfjlps/video-sharing-dgigxcm8qwolof9d" />
+
+  <script>
+    (function () {
+      const target = "https://padlet.com/wfjlps/video-sharing-dgigxcm8qwolof9d";
+      let done = false;
+
+      function tryRedirect() {
+        if (done) return;
+        try {
+          // Prefer replace so back button doesn't return here
+          window.location.replace(target);
+          // If still here (blocked or failed), we'll retry in 2sxvia interval below
+        } catch (e) {
+          // Ignore and retry
+        }
+      }
+
+      // Mark as done if page is actually leaving
+      window.addEventListener("pagehide", () => { done = true; });
+      window.addEventListener("beforeunload", () => { done = true; });
+
+      // Try immediately, then every 2 seconds until navigation succeeds
+      tryRedirect();
+      setInterval(tryRedirect, 2000);
+    })();
+  </script>
+</head>
+<body></body>
+</html>
